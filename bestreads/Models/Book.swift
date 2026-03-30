@@ -1,4 +1,5 @@
 import Foundation
+import SwiftData
 
 struct Quote: Identifiable, Codable, Equatable {
     let id: UUID
@@ -12,7 +13,8 @@ struct Quote: Identifiable, Codable, Equatable {
     }
 }
 
-struct Book: Identifiable, Codable, Equatable {
+@Model
+class Book: Identifiable, Codable, Equatable {
     let id: UUID
     var title: String
     var author: String

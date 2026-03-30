@@ -68,7 +68,7 @@ struct BookDetailView: View {
             }
         }
         .sheet(isPresented: $showingEdit) {
-            AddEditBookView(store: store, mode: .edit) {
+            AddEditBookView(store: store, mode: .edit, book: book) {
                 showingEdit = false
             }
         }
