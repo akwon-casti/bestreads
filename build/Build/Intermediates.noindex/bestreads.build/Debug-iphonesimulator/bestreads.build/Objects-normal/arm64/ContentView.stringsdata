@@ -57,6 +57,30 @@
           "startingColumn": 30,
           "startingLine": 66
         }
+      },
+      {
+        "comment": "",
+        "key": "Populate Sample Data",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export BookSampleData.swift",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear All Books",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 96
+        }
       }
     ]
   },

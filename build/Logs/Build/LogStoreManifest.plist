@@ -6,7 +6,7 @@
 	<integer>12</integer>
 	<key>logs</key>
 	<dict>
-		<key>8CAE34F0-0BFC-4220-9D41-336B81C16E29</key>
+		<key>24704AF7-BFFF-4C95-BBDA-137EEB710F0F</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>8CAE34F0-0BFC-4220-9D41-336B81C16E29.xcactivitylog</string>
+			<string>24704AF7-BFFF-4C95-BBDA-137EEB710F0F.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -40,13 +40,55 @@
 			<key>signature</key>
 			<string>Cleaning project bestreads with scheme bestreads and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>799085843.02508199</real>
+			<real>799190205.458359</real>
 			<key>timeStoppedRecording</key>
-			<real>799085843.39240098</real>
+			<real>799190205.91587806</real>
 			<key>title</key>
 			<string>Cleaning project bestreads with scheme bestreads and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>8CAE34F0-0BFC-4220-9D41-336B81C16E29</string>
+			<string>24704AF7-BFFF-4C95-BBDA-137EEB710F0F</string>
+		</dict>
+		<key>4378FE23-1B2D-4D4A-BEA2-CF5D98E05E7C</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4378FE23-1B2D-4D4A-BEA2-CF5D98E05E7C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>bestreads project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>bestreads</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Cleaning project bestreads with scheme bestreads and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>799190310.43178201</real>
+			<key>timeStoppedRecording</key>
+			<real>799190320.00994098</real>
+			<key>title</key>
+			<string>Cleaning project bestreads with scheme bestreads and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>4378FE23-1B2D-4D4A-BEA2-CF5D98E05E7C</string>
 		</dict>
 	</dict>
 </dict>

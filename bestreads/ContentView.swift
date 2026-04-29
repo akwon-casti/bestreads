@@ -88,6 +88,17 @@ struct ContentView: View {
                         EditButton()
                     }
                 }
+                #if DEBUG
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu {
+                        Button("Populate Sample Data") { populateSampleData() }
+                        Button("Export BookSampleData.swift") { exportSampleSwiftFile() }
+                        Button("Clear All Books", role: .destructive) { clearAllBooks() }
+                    } label: {
+                        Image(systemName: "ladybug")
+                    }
+                }
+                #endif
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { showingAdd = true }) {
                         Image(systemName: "plus")
@@ -197,6 +208,75 @@ struct ContentView: View {
             book.sortIndex = index
         }
     }
+
+#if DEBUG
+    // Debug helpers: populate sample data, export a Swift sample file, and clear all books
+    private func populateSampleData() {
+        let samples = [
+            Book(title: "Piranesi", author: "Susanna Clarke", rating: 5, quotes: [Quote(text: "The Beauty of the House is immeasurable; its Kindness infinite.")], notes: "Atmospheric and disorienting in the best way.", tags: ["#fantasy", "#favorite"]),
+            Book(title: "The Left Hand of Darkness", author: "Ursula K. Le Guin", rating: 5, quotes: [Quote(text: "Light is the left hand of darkness.")], notes: "Sharp political and cultural worldbuilding.", tags: ["#sciencefiction", "#classic"]),
+            Book(title: "Braiding Sweetgrass", author: "Robin Wall Kimmerer", rating: 4, quotes: [Quote(text: "All flourishing is mutual.")], notes: "Reflective and generous without losing specificity.", tags: ["#nonfiction"])
+        ]
+
+        // Insert with sequential sortIndex
+        var baseIndex = (books.map { $0.sortIndex }.max() ?? -1) + 1
+        for s in samples {
+            s.sortIndex = baseIndex
+            baseIndex += 1
+            modelContext.insert(s)
+        }
+        do {
+            try modelContext.save()
+            print("[bestreads][DEBUG] Inserted sample books. Count now: \(books.count)")
+        } catch {
+            print("[bestreads][DEBUG] Failed to insert sample books: \(error)")
+        }
+    }
+
+    private func exportSampleSwiftFile() {
+        let swiftFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("BookSampleData.swift")
+        var out = "// Generated BookSampleData.swift\n// exported from bestreads simulator\n\nimport Foundation\n\nenum BookSampleData {\n    static let books: [Book] = [\n"
+
+        for book in books {
+            let title = book.title
+            let author = book.author
+            let notes = book.notes ?? ""
+            // Use String(reflecting:) to get a safe, escaped Swift literal for strings
+            let tagsString = book.tags.map { String(reflecting: $0) }.joined(separator: ", ")
+            let quotesString = book.quotes.map { "Quote(text: \(String(reflecting: $0.text)))" }.joined(separator: ", ")
+
+            out += "        Book(\n"
+            out += "            title: \"\(title)\",\n"
+            out += "            author: \"\(author)\",\n"
+            out += "            rating: \(book.rating),\n"
+            out += "            quotes: [\(quotesString)],\n"
+            out += "            notes: \"\(notes)\",\n"
+            out += "            tags: [\(tagsString)]\n"
+            out += "        ),\n"
+        }
+
+        out += "    ]\n}\n"
+
+        do {
+            try out.write(to: swiftFileURL, atomically: true, encoding: .utf8)
+            print("[bestreads][DEBUG] Exported BookSampleData.swift to: \(swiftFileURL.path)")
+        } catch {
+            print("[bestreads][DEBUG] Failed to export sample Swift file: \(error)")
+        }
+    }
+
+    private func clearAllBooks() {
+        for b in books {
+            modelContext.delete(b)
+        }
+        do {
+            try modelContext.save()
+            print("[bestreads][DEBUG] Cleared all books. Count now: \(books.count)")
+        } catch {
+            print("[bestreads][DEBUG] Failed to clear books: \(error)")
+        }
+    }
+#endif
 }
 
 #Preview {
