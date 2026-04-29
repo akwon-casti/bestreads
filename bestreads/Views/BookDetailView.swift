@@ -1,8 +1,10 @@
 import SwiftUI
+import SwiftData
 
 struct BookDetailView: View {
     let book: Book
-    @ObservedObject var store: BookStore
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     @State private var showingEdit = false
     @State private var showingDeleteConfirm = false
 
@@ -68,13 +70,15 @@ struct BookDetailView: View {
             }
         }
         .sheet(isPresented: $showingEdit) {
-            AddEditBookView(store: store, mode: .edit, book: book) {
+            AddEditBookView(mode: .edit, book: book) {
                 showingEdit = false
             }
         }
         .confirmationDialog("Delete this book?", isPresented: $showingDeleteConfirm) {
             Button("Delete", role: .destructive) {
-                store.delete(id: book.id)
+                modelContext.delete(book)
+                try? modelContext.save()
+                dismiss()
             }
             Button("Cancel", role: .cancel) {}
         }
@@ -83,7 +87,7 @@ struct BookDetailView: View {
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let b = Book(title: "Example", author: "Author", rating: 4, quotes: [Quote(text: "A good line")], notes: "Some notes", tags: ["#nonfiction"])
-        BookDetailView(book: b, store: BookStore())
+        BookDetailView(book: Book.sampleData[0])
+            .modelContainer(PreviewContainer.make())
     }
 }

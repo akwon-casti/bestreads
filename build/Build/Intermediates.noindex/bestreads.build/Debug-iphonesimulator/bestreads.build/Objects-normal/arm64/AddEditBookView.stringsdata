@@ -1,0 +1,168 @@
+{
+  "source": "/Users/akwon/Desktop/bestreads/bestreads/Views/AddEditBookView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Add Book",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 222
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit Book",
+        "location": {
+          "startingColumn": 58,
+          "startingLine": 222
+        }
+      },
+      {
+        "comment": "",
+        "key": "Book",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tags",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quotes",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 144
+        }
+      },
+      {
+        "comment": "",
+        "key": "Title",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Author",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rating",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add tag (e.g. #nonfiction)",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 111
+        }
+      },
+      {
+        "comment": "",
+        "key": "No quotes yet",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type a quote",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 147
+        }
+      },
+      {
+        "comment": "",
+        "key": "\"%@\"",
+        "location": {
+          "startingColumn": 58,
+          "startingLine": 163
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 179
+        }
+      },
+      {
+        "comment": "",
+        "key": "Removed %@",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 203
+        }
+      },
+      {
+        "comment": "",
+        "key": "Removed quote",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 205
+        }
+      },
+      {
+        "comment": "",
+        "key": "Undo",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 208
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 225
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 231
+        }
+      }
+    ]
+  },
+  "version": 1
+}

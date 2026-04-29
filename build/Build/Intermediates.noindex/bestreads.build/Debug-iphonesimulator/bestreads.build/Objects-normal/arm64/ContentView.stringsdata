@@ -1,0 +1,64 @@
+{
+  "source": "/Users/akwon/Desktop/bestreads/bestreads/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Best Reads",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 84
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sort",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "All",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "Any",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld+",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "Min: %lld",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "No books yet. Tap + to add one.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 66
+        }
+      }
+    ]
+  },
+  "version": 1
+}

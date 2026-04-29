@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 enum AddEditMode {
     case add
@@ -6,7 +7,8 @@ enum AddEditMode {
 }
 
 struct AddEditBookView: View {
-    @ObservedObject var store: BookStore
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: [SortDescriptor(\Book.sortIndex)]) private var books: [Book]
     var mode: AddEditMode
     var bookToEdit: Book?
     var onDone: () -> Void
@@ -29,12 +31,10 @@ struct AddEditBookView: View {
     @State private var showUndoBanner: Bool = false
     @State private var undoWorkItem: DispatchWorkItem? = nil
 
-    init(store: BookStore, mode: AddEditMode, book: Book? = nil, onDone: @escaping () -> Void) {
-        self.store = store
+    init(mode: AddEditMode, book: Book? = nil, onDone: @escaping () -> Void) {
         self.mode = mode
         self.bookToEdit = book
         self.onDone = onDone
-        // _state initializers will run in body onAppear to prefill
     }
 
     var quoteAreaMaxHeight: CGFloat {
@@ -65,10 +65,9 @@ struct AddEditBookView: View {
                     }
 
                     Section(header: Text("Tags")) {
-                        // Suggested tags from store (horizontal tappable chips)
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 8) {
-                                ForEach(store.availableTags(), id: \.self) { tag in
+                                ForEach(availableTags(), id: \.self) { tag in
                                     let selected = tags.contains { $0.caseInsensitiveCompare(tag) == .orderedSame }
                                     Button(action: {
                                         toggleTag(tag)
@@ -86,7 +85,6 @@ struct AddEditBookView: View {
                             .padding(.vertical, 4)
                         }
 
-                        // Current selected tags (horizontal)
                         if !tags.isEmpty {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 8) {
@@ -108,7 +106,6 @@ struct AddEditBookView: View {
                             }
                         }
 
-                        // Add custom tag input + fuzzy suggestions
                         VStack(alignment: .leading, spacing: 6) {
                             HStack {
                                 TextField("Add tag (e.g. #nonfiction)", text: $newTagText, onCommit: addCustomTag)
@@ -118,7 +115,6 @@ struct AddEditBookView: View {
                                 .disabled(newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                             }
 
-                            // Fuzzy suggestions: show when typing
                             if !newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                                 let suggestions = suggestedTags(for: newTagText)
                                 if !suggestions.isEmpty {
@@ -126,7 +122,6 @@ struct AddEditBookView: View {
                                         HStack(spacing: 8) {
                                             ForEach(suggestions, id: \.self) { s in
                                                 Button(action: {
-                                                    // add/ toggle suggestion
                                                     toggleTag(s)
                                                     newTagText = ""
                                                 }) {
@@ -160,7 +155,6 @@ struct AddEditBookView: View {
                                 Text("No quotes yet")
                                     .foregroundStyle(.secondary)
                             } else {
-                                // Scrollable area for quotes with auto-scroll to newest and swipe-to-delete on each quote
                                 ScrollViewReader { proxy in
                                     ScrollView(.vertical) {
                                         LazyVStack(spacing: 8) {
@@ -191,7 +185,6 @@ struct AddEditBookView: View {
                                     }
                                     .frame(maxHeight: quoteAreaMaxHeight)
                                     .onChange(of: quotes.count) { _, _ in
-                                        // scroll to the latest quote when a new one is added
                                         if let lastID = quotes.last?.id {
                                             withAnimation { proxy.scrollTo(lastID, anchor: .bottom) }
                                         }
@@ -202,14 +195,13 @@ struct AddEditBookView: View {
                     }
                 }
 
-                // Undo banner overlay
                 if showUndoBanner {
                     VStack {
                         Spacer()
                         HStack {
                             if let t = lastRemovedTag {
                                 Text("Removed \(t)")
-                            } else if let q = lastRemovedQuote {
+                            } else if lastRemovedQuote != nil {
                                 Text("Removed quote")
                             }
                             Spacer()
@@ -242,11 +234,9 @@ struct AddEditBookView: View {
             .onAppear {
                 prefillIfNeeded()
             }
-            // Observe keyboard frame changes to adapt the quote area height
             .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)) { notif in
                 guard let info = notif.userInfo,
                       let frame = info[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-                // keyboard height is the portion overlapping the screen bottom
                 let height = max(0, UIScreen.main.bounds.height - frame.origin.y)
                 keyboardHeight = height
             }
@@ -256,11 +246,9 @@ struct AddEditBookView: View {
         }
     }
 
-    // tag helpers
     private func toggleTag(_ raw: String) {
         let t = Book.normalizeTag(raw)
         if let idx = tags.firstIndex(where: { $0.caseInsensitiveCompare(t) == .orderedSame }) {
-            // remove with undo
             let removed = tags.remove(at: idx)
             scheduleUndoForTag(removed)
         } else {
@@ -307,13 +295,11 @@ struct AddEditBookView: View {
     }
 
     private func performUndo() {
-        // restore tag or quote
         if let t = lastRemovedTag {
             if !tags.contains(where: { $0.caseInsensitiveCompare(t) == .orderedSame }) {
                 tags.append(t)
             }
         } else if let q = lastRemovedQuote {
-            // restore quote at end
             quotes.append(q)
         }
         clearUndo()
@@ -340,11 +326,39 @@ struct AddEditBookView: View {
         }
     }
 
-    // simple fuzzy suggestion: returns tags from store that match the term by contains or subsequence
+    private func availableTags() -> [String] {
+        var freq: [String: Int] = [:]
+        var unique: [String] = []
+        var seen = Set<String>()
+
+        for book in books {
+            for raw in book.tags {
+                let tag = Book.normalizeTag(raw)
+                let key = tag.lowercased()
+                freq[key, default: 0] += 1
+                if !seen.contains(key) {
+                    seen.insert(key)
+                    unique.append(tag)
+                }
+            }
+        }
+
+        unique.sort { a, b in
+            let ka = a.lowercased()
+            let kb = b.lowercased()
+            let fa = freq[ka] ?? 0
+            let fb = freq[kb] ?? 0
+            if fa != fb { return fa > fb }
+            return ka < kb
+        }
+
+        return unique
+    }
+
     private func suggestedTags(for term: String) -> [String] {
         let t = term.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         guard !t.isEmpty else { return [] }
-        let candidates = store.availableTags()
+        let candidates = availableTags()
         func isSubsequence(_ needle: String, _ hay: String) -> Bool {
             if needle.isEmpty { return true }
             var i = needle.startIndex
@@ -369,7 +383,6 @@ struct AddEditBookView: View {
 
     private func prefillIfNeeded() {
         guard let b = bookToEdit, mode == .edit else { return }
-        // used for safe optional unwrapping
         title = b.title
         author = b.author
         rating = b.rating
@@ -379,23 +392,31 @@ struct AddEditBookView: View {
     }
 
     private func save() {
-        let saveTags = tags
+        let normalizedTags = Book.normalizeTags(tags)
 
         if mode == .add {
-            let book = Book(title: title, author: author, rating: rating, quotes: quotes, notes: notes.isEmpty ? nil : notes, tags: tags)
-            store.add(book)
+            let nextSortIndex = (books.map(\.sortIndex).max() ?? -1) + 1
+            let book = Book(
+                title: title,
+                author: author,
+                rating: rating,
+                quotes: quotes,
+                notes: notes.isEmpty ? nil : notes,
+                tags: normalizedTags,
+                sortIndex: nextSortIndex
+            )
+            modelContext.insert(book)
         } else if mode == .edit, let existing = bookToEdit {
-            var updated = existing
-            updated.title = title
-            updated.author = author
-            updated.rating = Book.clampedRating(rating)
-            updated.notes = notes.isEmpty ? nil : notes
-            updated.tags = Book.normalizeTags(saveTags)
-            updated.quotes = quotes
-            updated.updatedAt = Date()
-            store.update(updated)
+            existing.title = title.trimmingCharacters(in: .whitespacesAndNewlines)
+            existing.author = author.trimmingCharacters(in: .whitespacesAndNewlines)
+            existing.rating = Book.clampedRating(rating)
+            existing.notes = notes.isEmpty ? nil : notes
+            existing.tags = normalizedTags
+            existing.quotes = quotes
+            existing.updatedAt = Date()
         }
 
+        try? modelContext.save()
         onDone()
     }
 }

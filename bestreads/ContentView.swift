@@ -6,19 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @StateObject private var store = BookStore()
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: [SortDescriptor(\Book.sortIndex)]) private var books: [Book]
     @State private var showingAdd = false
 
     enum SortOption: String, CaseIterable {
+        case manual = "Custom"
         case dateDesc = "Date (newest)"
         case dateAsc = "Date (oldest)"
         case ratingDesc = "Rating (high)"
         case ratingAsc = "Rating (low)"
     }
 
-    @State private var sortOption: SortOption = .dateDesc
+    @State private var sortOption: SortOption = .manual
     @State private var selectedTag: String? = nil
     @State private var minRating: Int = 1
 
@@ -37,7 +40,7 @@ struct ContentView: View {
 
                     Menu {
                         Button("All") { selectedTag = nil }
-                        ForEach(store.availableTags(), id: \.self) { tag in
+                        ForEach(availableTags(), id: \.self) { tag in
                             Button(tag) { selectedTag = tag }
                         }
                     } label: {
@@ -59,41 +62,21 @@ struct ContentView: View {
                 .padding(.vertical, 8)
 
                 List {
-                    if store.books.isEmpty {
+                    if books.isEmpty {
                         Text("No books yet. Tap + to add one.")
                             .foregroundStyle(.secondary)
                     } else {
-                        // Build filtered + sorted list
                         let filtered = filteredBooks()
-                        if isFiltered() {
-                            // filtered: show items but do not allow reordering
-                            ForEach(filtered) { book in
-                                NavigationLink(destination: BookDetailView(book: book, store: store)) {
-                                    BookRowView(book: book)
-                                }
+                        ForEach(filtered) { book in
+                            NavigationLink(destination: BookDetailView(book: book)) {
+                                BookRowView(book: book)
                             }
-                            .onDelete { idxSet in
-                                for idx in idxSet {
-                                    let id = filtered[idx].id
-                                    store.delete(id: id)
-                                }
-                            }
-                        } else {
-                            // unfiltered: operate directly on store.books so onMove works
-                            ForEach(store.books) { book in
-                                NavigationLink(destination: BookDetailView(book: book, store: store)) {
-                                    BookRowView(book: book)
-                                }
-                            }
-                            .onDelete { idxSet in
-                                for idx in idxSet {
-                                    let id = store.books[idx].id
-                                    store.delete(id: id)
-                                }
-                            }
-                            .onMove { from, to in
-                                store.move(fromOffsets: from, toOffset: to)
-                            }
+                        }
+                        .onDelete { indexSet in
+                            deleteBooks(at: indexSet, from: filtered)
+                        }
+                        .onMove { from, to in
+                            moveBooks(from: from, to: to)
                         }
                     }
                 }
@@ -101,8 +84,9 @@ struct ContentView: View {
             .navigationTitle("Best Reads")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    // Only show edit button when not filtered (reordering makes sense)
-                    if !isFiltered() { EditButton() }
+                    if sortOption == .manual && !isFiltered() {
+                        EditButton()
+                    }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { showingAdd = true }) {
@@ -111,7 +95,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $showingAdd) {
-                AddEditBookView(store: store, mode: .add) {
+                AddEditBookView(mode: .add) {
                     showingAdd = false
                 }
             }
@@ -123,17 +107,46 @@ struct ContentView: View {
         return selectedTag != nil || minRating > 1
     }
 
+    private func availableTags() -> [String] {
+        var freq: [String: Int] = [:]
+        var unique: [String] = []
+        var seen = Set<String>()
+
+        for book in books {
+            for raw in book.tags {
+                let tag = Book.normalizeTag(raw)
+                let key = tag.lowercased()
+                freq[key, default: 0] += 1
+                if !seen.contains(key) {
+                    seen.insert(key)
+                    unique.append(tag)
+                }
+            }
+        }
+
+        unique.sort { a, b in
+            let ka = a.lowercased()
+            let kb = b.lowercased()
+            let fa = freq[ka] ?? 0
+            let fb = freq[kb] ?? 0
+            if fa != fb { return fa > fb }
+            return ka < kb
+        }
+
+        return unique
+    }
+
     private func filteredBooks() -> [Book] {
-        var out = store.books
-        // filter by tag
+        var out = books
+
         if let tag = selectedTag {
             out = out.filter { $0.tags.contains(where: { $0.caseInsensitiveCompare(tag) == .orderedSame }) }
         }
-        // filter by min rating
         out = out.filter { $0.rating >= minRating }
 
-        // sort
         switch sortOption {
+        case .manual:
+            out.sort { $0.sortIndex < $1.sortIndex }
         case .dateDesc:
             out.sort { $0.dateAdded > $1.dateAdded }
         case .dateAsc:
@@ -146,8 +159,47 @@ struct ContentView: View {
 
         return out
     }
+
+    private func deleteBooks(at offsets: IndexSet, from source: [Book]) {
+        for index in offsets {
+            modelContext.delete(source[index])
+        }
+        normalizeSortIndexes()
+        do {
+            try modelContext.save()
+            print("[bestreads] Saved modelContext after delete. Current books count: \(books.count)")
+        } catch {
+            print("[bestreads] Failed to save modelContext after delete: \(error)")
+        }
+    }
+
+    private func moveBooks(from source: IndexSet, to destination: Int) {
+        guard sortOption == .manual, !isFiltered() else { return }
+        var reordered = books
+        reordered.move(fromOffsets: source, toOffset: destination)
+
+        for (index, book) in reordered.enumerated() {
+            book.sortIndex = index
+            book.updatedAt = Date()
+        }
+
+        do {
+            try modelContext.save()
+            print("[bestreads] Saved modelContext after move. Current books count: \(books.count)")
+        } catch {
+            print("[bestreads] Failed to save modelContext after move: \(error)")
+        }
+    }
+
+    private func normalizeSortIndexes() {
+        let ordered = books.sorted { $0.sortIndex < $1.sortIndex }
+        for (index, book) in ordered.enumerated() where book.sortIndex != index {
+            book.sortIndex = index
+        }
+    }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(PreviewContainer.make())
 }

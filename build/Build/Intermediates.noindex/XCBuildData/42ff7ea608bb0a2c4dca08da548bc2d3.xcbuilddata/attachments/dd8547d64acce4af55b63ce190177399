@@ -1,0 +1,129 @@
+{
+  "" : {
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreads-primary.dia",
+    "emit-module-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreads-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreads-primary-emit-module.dia",
+    "pch" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreads-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreads-primary.swiftdeps"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/ContentView.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/Models/Book.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/Book.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/Book.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/Book.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/Book.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/Book.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/Book.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/Book.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/Book~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/Models/History.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/History.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/History.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/History.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/History.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/History.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/History.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/History.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/History~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/Preview Content/BookSampleData.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookSampleData.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookSampleData.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookSampleData.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookSampleData.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookSampleData.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookSampleData.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookSampleData.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookSampleData~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/Preview Content/PreviewContainer.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/PreviewContainer.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/PreviewContainer.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/PreviewContainer.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/PreviewContainer.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/PreviewContainer.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/PreviewContainer.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/PreviewContainer.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/PreviewContainer~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/ViewModels/BookStore.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookStore.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookStore.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookStore.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookStore.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookStore.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookStore.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookStore.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookStore~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/Views/AddEditBookView.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/AddEditBookView.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/AddEditBookView.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/AddEditBookView.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/AddEditBookView.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/AddEditBookView.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/AddEditBookView.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/AddEditBookView.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/AddEditBookView~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/Views/BookDetailView.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookDetailView.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookDetailView.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookDetailView.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookDetailView.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookDetailView.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookDetailView.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookDetailView.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookDetailView~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/Views/BookRowView.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookRowView.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookRowView.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookRowView.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookRowView.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookRowView.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookRowView.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookRowView.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/BookRowView~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/Views/StarRatingView.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/StarRatingView.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/StarRatingView.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/StarRatingView.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/StarRatingView.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/StarRatingView.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/StarRatingView.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/StarRatingView.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/StarRatingView~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/bestreads/bestreadsApp.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreadsApp.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreadsApp.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreadsApp.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreadsApp.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreadsApp.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreadsApp.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreadsApp.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/bestreadsApp~partial.swiftmodule"
+  },
+  "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/akwon/Desktop/bestreads/build/Build/Intermediates.noindex/bestreads.build/Debug-iphonesimulator/bestreads.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
